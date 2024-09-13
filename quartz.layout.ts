@@ -6,7 +6,7 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [],
-  footer: Component.Footer({
+  footer:Component.Footer({
     links: {
       GitHub: "https://github.com/emivvvvv",
       LinkedIn: "https://tr.linkedin.com/in/emirhantala/tr",
@@ -34,6 +34,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
+    Component.MobileOnly(Component.Spacer()),
   ],
 }
 
