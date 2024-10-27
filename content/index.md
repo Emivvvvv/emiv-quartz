@@ -34,9 +34,6 @@ Hi y'all! My name is Emirhan. I'm a Computer Engineering student who is interest
 <br>
 [[python-for-interviews-cheatsheet|Python for Interviews Cheatsheet]] - cheatsheet for cracking coding interviews.
 
-## CV
-If you want to see more information about me, here is the Google Docs link for my [[https://docs.google.com/document/d/1GJv5YIhUu0OUGBkjHfZ9EhwHav6tjh6J/edit?usp=sharing&ouid=116070675911539536391&rtpof=true&sd=true|CV]]. 
-
 ## Recommendation Letters
 [[mirjam-de-haas|Mirjam de Haas - Recommendation Letter]]
 
