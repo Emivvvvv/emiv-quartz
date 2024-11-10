@@ -45,6 +45,10 @@ if ((n > 2 and
 	n != m) or n == m):
 	n += 1
 ```
+Inline `if` statements are useful for some cases
+```python
+result = "Positive" if number > 0 else "Non-positive"
+```
 ### Loops  
 ```python
 while True:
@@ -320,7 +324,17 @@ for val in myMap.values():
 for key, val in myMap.items():
 	print(key, val)
 ```
+For some cases, creating the dict with defaultdict prevents a lot of edge cases
+```python
+from collections import defaultdict
 
+# Initialize a defaultdict with int, which defaults missing keys to 0
+counts = defaultdict(int)
+
+# Count occurrences in a list
+for item in ["apple", "banana", "apple"]:
+    counts[item] += 1
+```
 ### Tuples  
 Tuples are like arrays but immutable
 ```python
@@ -446,6 +460,3 @@ class MyClass:
 	def getDoubleLength(self):
 		return 2 * self.getLength()
 ```
-
-## Conclusion
-This was the first post about my journey in preparing for the interviews. I can update this as I solve questions. I also plan to share some good questions, and interview tricks here. I hope this will help you at some point and some level. If you also want to focus on preparing for the interviews, I highly suggest you to have a look at the [[https://neetcode.io/|NeetCode]] website.

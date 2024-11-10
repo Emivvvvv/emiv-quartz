@@ -198,7 +198,7 @@ In 2015, Gomez shared her lupus diagnosis with the world. One year later Gomez'
 
 > I almost cut a piece of myself for your life  
 
-As Selena and Justin became together in a short time, he felt like Selena just used him till she made up her mind. He put her on top but it was not the same for Selena. In my case, a similar thing happened, and similar emotions were felt thx her.
+As Selena and Justin became together in a short time, he felt like Selena just used him till she made up her mind. He put her on top but it was not the same for Selena. In my case, a similar thing happened, and similar emotions were felt thx to her.
 
 >Guess I was just another pit stop  
 'Til you made up your mind  
