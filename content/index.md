@@ -32,7 +32,9 @@ Hi y'all! My name is Emirhan. I'm a Computer Engineering student who is interest
 <br>
 [[btc-vanity]] - A multithread vanity address finder, ofc written with Rust.
 <br>
-[[python-for-interviews-cheatsheet|Python for Interviews Cheatsheet]] - cheatsheet for cracking coding interviews.
+[[python-for-interviews-cheatsheet|Python for Interviews Cheatsheet]] - Python cheatsheet focused on coding interviews.
+<br>
+[[leetcode-cheatsheet-for-coding-interviews|LeetCode Cheatsheet for Coding Interviews]] - Common LeetCode patterns, their ideas, code templates, and example question solutions.
 
 ## Recommendation Letters
 [[mirjam-de-haas|Mirjam de Haas - Recommendation Letter]]

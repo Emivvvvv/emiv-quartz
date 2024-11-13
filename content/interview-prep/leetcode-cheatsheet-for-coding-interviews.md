@@ -7,7 +7,10 @@ tags:
   - Python
   - Interview
 ---
-See [[python-for-interviews-cheatsheet|Python for Interviews Cheatsheet]] the base Python language used here.
+# Intro
+
+As someone preparing for interviews daily, I thought a cheat sheet focused on common patterns I might be asked about would be beneficial. Here, you’ll find the most common patterns, along with explanations, code templates I use to solve these questions, and an example question that I found both interesting and helpful in understanding each pattern better. I use Python for my interviews, so if you do too—or want to start using it—I recommend checking out my [[python-for-interviews-cheatsheet|Python for Interviews Cheatsheet]].
+
 ## Arrays & Hashing
 ---
 ### Prefix Sum
@@ -546,7 +549,7 @@ Given the `root` of a binary tree and an integer `targetSum`, determine if the t
 
 **Example:**
 
-> **Input:** root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22  
+```> **Input:** root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22  
 > **Output:** true  
 
 Solution:
@@ -561,6 +564,40 @@ def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
     return self.hasPathSum(root.left, targetSum) or self.hasPathSum(root.right, targetSum)
 ```
 
+#### Example Question: [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+
+Given the `root` of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).
+
+**Example:**
+
+```plaintext
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[9,20],[15,7]]
+```
+
+**Solution:**
+
+```python
+def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    if not root:
+        return []
+    
+    result = []
+    queue = deque([root])
+    
+    while queue:
+        level = []
+        for _ in range(len(queue)):
+            node = queue.popleft()
+            level.append(node.val)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        result.append(level)
+    
+    return result
+```
 ---
 ### Binary Search Tree
 
