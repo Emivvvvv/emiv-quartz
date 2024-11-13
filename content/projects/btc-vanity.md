@@ -186,4 +186,4 @@ here are some example screenshots
 ![example](example.png)
 ![examples-input-file](examples-input-file.png)
 
-Thanks for reading till the end. I hope you like the project. If you would like to test btc-vanity, before using it please read the [[https://github.com/Emivvvvv/btc-vanity?tab=readme-ov-file#disclaimer|DISCLAIMER]] for your security.
+Thanks for reading till the end. I hope you like the project. If you would like to test btc-vanity, before using it please read the [[https://github.com/Emivvvvv/btc-vanity?tab=readme-ov-file#disclaimer|DISCLAIMER]] for your good.

@@ -324,7 +324,7 @@ for val in myMap.values():
 for key, val in myMap.items():
 	print(key, val)
 ```
-For some cases, creating the dict with defaultdict prevents a lot of edge cases
+For some cases, creating the dict with defaultdict prevents a lot of edge case crashes
 ```python
 from collections import defaultdict
 
