@@ -40,8 +40,8 @@ Given an integer array `nums`, return an array `answer` such that `answer[i]` is
 
 **Example:**
 
-> **Input:** nums = [1,2,3,4]  
-> **Output:** [24,12,8,6]  
+> **Input:** nums = [1,2,3,4]<br>
+> **Output:** [24,12,8,6]<br>
 > **Explanation:** For each index, the product of all elements except the current one results in the array [24,12,8,6].
 
 Solution:
@@ -98,8 +98,8 @@ Given an integer array `nums`, return all the unique triplets `[nums[i], nums[j]
 
 **Example:**
 
-> **Input:** nums = [-1, 0, 1, 2, -1, -4]  
-> **Output:** [[-1, -1, 2], [-1, 0, 1]]  
+> **Input:** nums = [-1, 0, 1, 2, -1, -4]  <br>
+> **Output:** [[-1, -1, 2], [-1, 0, 1]]  <br>
 > **Explanation:** The unique triplets that sum to zero are [-1, -1, 2] and [-1, 0, 1].
 
 Solution:
@@ -187,8 +187,8 @@ Given a string `s` and an integer `k`, you can choose any character in the strin
 
 **Example:**
 
-> **Input:** s = "AABABBA", k = 1  
-> **Output:** 4  
+> **Input:** s = "AABABBA", k = 1  <br>
+> **Output:** 4  <br>
 > **Explanation:** Replace the one 'B' in "AABABB" to get "AAAA" with a length of 4.
 
 Solution:
@@ -226,7 +226,7 @@ Given an array of intervals where intervals[i] = `[start, end]`, merge all overl
 
 **Example:**
 
-> **Input:** intervals = \[[1,3],[2,6],[8,10],[15,18]]
+> **Input:** intervals = \[[1,3],[2,6],[8,10],[15,18]]<br>
 > **Output:** \[[1,6],[8,10],[15,18]]
 
 Solution:
@@ -258,7 +258,7 @@ Given an array of strings `strs`, group the anagrams together.
 
 **Example:**
 
-> **Input:** strs = ["eat","tea","tan","ate","nat","bat"]  
+> **Input:** strs = ["eat","tea","tan","ate","nat","bat"]  <br>
 > **Output:** \[["bat"],["nat","tan"],["ate","eat","tea"]]
 
 Solution:
@@ -290,8 +290,8 @@ Given an unsorted array of integers `nums`, find the length of the longest conse
 
 **Example:**
 
-> **Input:** nums = [100,4,200,1,3,2]  
-> **Output:** 4  
+> **Input:** nums = [100,4,200,1,3,2]  <br>
+> **Output:** 4  <br>
 > **Explanation:** The longest consecutive elements sequence is `[1, 2, 3, 4]`.
 
 Solution:
@@ -327,8 +327,8 @@ Given a list of daily temperatures `temperatures`, return a list such that, for 
 
 **Example:**
 
-> **Input:** temperatures = [73, 74, 75, 71, 69, 72, 76, 73]  
-> **Output:** [1, 1, 4, 2, 1, 1, 0, 0]  
+> **Input:** temperatures = [73, 74, 75, 71, 69, 72, 76, 73]  <br>
+> **Output:** [1, 1, 4, 2, 1, 1, 0, 0]  <br>
 > **Explanation:** For each day, you wait until a warmer temperature appears.
 
 Solution:
@@ -382,7 +382,7 @@ Write an efficient algorithm that searches for a value in an `m x n` matrix. Int
 
 **Example:**
 
-> **Input:** matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], target = 3  
+> **Input:** matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], target = 3  <br>
 > **Output:** true  
 
 Solution:
@@ -416,7 +416,7 @@ Given a rotated sorted array `nums` of unique elements, find the minimum element
 
 **Example:**
 
-> **Input:** nums = [3,4,5,1,2]  
+> **Input:** nums = [3,4,5,1,2]  <br>
 > **Output:** 1  
 
 Solution:
@@ -464,7 +464,7 @@ Given the head of a singly linked list, reverse the list, and return the reverse
 
 **Example:**
 
-> **Input:** head = [1,2,3,4,5]  
+> **Input:** head = [1,2,3,4,5]  <br>
 > **Output:** [5,4,3,2,1]  
 
 Solution:
@@ -527,7 +527,7 @@ Given the `root` of a binary tree, check whether it is a mirror of itself (i.e.,
 
 **Example:**
 
-> **Input:** root = [1,2,2,3,4,4,3]  
+> **Input:** root = [1,2,2,3,4,4,3]  <br>
 > **Output:** true  
 
 Solution:
@@ -570,10 +570,10 @@ Given the `root` of a binary tree, return the level order traversal of its nodes
 
 **Example:**
 
-```plaintext
-Input: root = [3,9,20,null,null,15,7]
-Output: [[3],[9,20],[15,7]]
-```
+
+>Input: root = [3,9,20,null,null,15,7]<br>
+>Output: [[3],[9,20],[15,7]]
+
 
 **Solution:**
 
@@ -631,8 +631,8 @@ Given a binary search tree (BST), find the lowest common ancestor (LCA) of two g
 
 **Example:**
 
-> **Input:** root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8  
-> **Output:** 6  
+> **Input:** root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8  <br>
+> **Output:** 6  <br>
 > **Explanation:** The lowest common ancestor of nodes 2 and 8 is 6.
 
 Solution:
@@ -656,7 +656,7 @@ Given the root of a binary search tree and an integer `k`, return the `k`th smal
 
 **Example:**
 
-> **Input:** root = [3,1,4,null,2], k = 1  
+> **Input:** root = [3,1,4,null,2], k = 1  <br>
 > **Output:** 1  
 
 Solution:
@@ -707,7 +707,7 @@ Given an integer array `nums` and an integer `k`, return the `k`th largest eleme
 
 **Example:**
 
-> **Input:** nums = [3,2,1,5,6,4], k = 2  
+> **Input:** nums = [3,2,1,5,6,4], k = 2  <br>
 > **Output:** 5  
 
 Solution:
@@ -767,12 +767,12 @@ Given `n` pairs of parentheses, write a function to _generate all combination
 
 **Example 1:**
 
-> **Input:** n = 3
+> **Input:** n = 3<br>
 > **Output:** ["((()))","(()())","(())()","()(())","()()()"]
 
 **Example 2:**
 
-> **Input:** n = 1
+> **Input:** n = 1<br>
 > **Output:** ["()"]
 
 Solution:

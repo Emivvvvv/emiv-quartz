@@ -1,13 +1,16 @@
 ---
 title: Dynamic Programming
-draft: true
+draft: false
 tags:
   - Algorithms
   - DataStructures
   - Python
   - Interview
 ---
----
+# Intro
+
+Dynamic programming is tough, it really is. But unfortunately, it’s one of those topics that keeps popping up in interviews, so there is no other option than mastering it. In this post, I tried to explain some of the DP approaches for my future interviews. I hope it will be beneficial for anyone who's reading. For more interview patterns, check out my [[leetcode-cheatsheet-for-coding-interviews|LeetCode Cheatsheet for Coding Interviews]] and [[graphs|Graph questions cheatsheet]]. Also, if you’re using Python for interviews—or thinking about it—my [[python-for-interviews-cheatsheet|Python for Interviews Cheatsheet]] might be helpful too. Enough talk—let’s dive in.
+
 ## Minimum (Maximum) Path to Reach a Target
 
 ### Overview
@@ -25,6 +28,12 @@ This pattern involves finding the minimum or maximum cost/path to reach a target
 #### Problem Description
 
 Given an integer array `coins` representing coins of different denominations and an integer `amount`, return the fewest number of coins needed to make up that amount. If it's impossible, return `-1`.
+
+**Example:**
+
+> **Input:** coins = [1,2,5], amount = 11<br>
+> **Output:** 3<br>
+> **Explanation:** 11 = 5 + 5 + 1<br>
 
 #### Solution Explanation
 
@@ -61,8 +70,8 @@ class Solution:
 
 ##### Complexity Analysis
 
-- **Time Complexity**: \( O(amount \times n) \), where \( n \) is the number of coin denominations.
-- **Space Complexity**: \( O(amount) \), for the DP array.
+- **Time Complexity**: O(amount * n), where 'n' is the number of coin denominations.
+- **Space Complexity**: O(amount), for the DP array.
 
 ---
 
@@ -84,6 +93,18 @@ This pattern deals with counting the number of distinct ways to achieve a certai
 
 Given an integer array `nums` and an integer `target`, you can add `'+'` or `'-'` before each number in `nums` to form an expression. Return the number of different expressions that evaluate to `target`.
 
+**Example:**
+
+> **Input:** nums = [1,1,1,1,1], target = 3<br>
+> **Output:** 5<br>
+> **Explanation:** There are 5 ways to assign symbols to make the sum of nums be target 3.<br>
+> 
+> -1 + 1 + 1 + 1 + 1 = 3<br>
+> +1 - 1 + 1 + 1 + 1 = 3<br>
+> +1 + 1 - 1 + 1 + 1 = 3<br>
+> +1 + 1 + 1 - 1 + 1 = 3<br>
+> +1 + 1 + 1 + 1 - 1 = 3
+
 #### Solution Explanation
 
 We need to find the number of ways to assign `'+'` or `'-'` to each number such that the total sum equals the target.
@@ -94,16 +115,13 @@ We need to find the number of ways to assign `'+'` or `'-'` to each number such 
 
 2. **Check Feasibility**: If `(sum_nums + target)` is odd or `target` is greater than `sum_nums`, return `0`.
 
-3. **Transform the Problem**: Convert it into a subset sum problem:
-   \[
-   \text{Positive subset sum} = \frac{\text{sum\_nums} + \text{target}}{2}
-   \]
+3. **Transform the Problem**: Convert it into a subset sum problem: `s = (sum_nums + target) // 2`
 
-4. **Define the DP Array**: `dp[i]` represents the number of ways to reach sum `i`.
+5. **Define the DP Array**: `dp[i]` represents the number of ways to reach sum `i`.
 
-5. **Initialize the DP Array**: `dp[0] = 1`, as there's one way to reach sum `0` (by choosing no elements).
+6. **Initialize the DP Array**: `dp[0] = 1`, as there's one way to reach sum `0` (by choosing no elements).
 
-6. **Iterate and Update**: For each number in `nums`, update the DP array in reverse to avoid overwriting.
+7. **Iterate and Update**: For each number in `nums`, update the DP array in reverse to avoid overwriting.
 
 ##### Code
 
@@ -127,78 +145,8 @@ class Solution:
 
 ##### Complexity Analysis
 
-- **Time Complexity**: \( O(n \times s) \), where \( s \) is the subset sum.
-- **Space Complexity**: \( O(s) \), for the DP array.
-
----
-
-## Merging Intervals
-
-### Overview
-
-This pattern is used in problems where you need to combine or partition sequences or intervals to minimize or maximize a cost.
-
-### Key Characteristics
-
-- **Non-overlapping Intervals**: Problems often involve merging or partitioning intervals without overlap.
-- **State Definition**: The DP state represents the minimum or maximum cost to merge a range of intervals.
-- **Decision Making**: At each step, decide where to partition the sequence.
-
-### Example Problem: [1000. Minimum Cost to Merge Stones](https://leetcode.com/problems/minimum-cost-to-merge-stones/)
-
-#### Problem Description
-
-Given an array `stones`, merge them into piles of size `K`. The cost of merging adjacent piles is equal to the sum of their total stones. Return the minimum cost to merge all piles into one pile. If it's impossible, return `-1`.
-
-#### Solution Explanation
-
-We need to find the minimum cost to merge the stones according to the rules. This is a variation of the interval DP problem.
-
-##### Steps
-
-1. **Check Feasibility**: If `(len(stones) - 1) % (K - 1)` is not zero, it's impossible to merge into one pile.
-
-2. **Compute Prefix Sums**: Use prefix sums to calculate the sum of stones in a range efficiently.
-
-3. **Define the DP Array**: `dp[i][j]` represents the minimum cost to merge stones from index `i` to `j`.
-
-4. **Initialize the DP Array**: Set all values to `0` where `i == j`.
-
-5. **Iterate and Update**:
-   - For all ranges of length from `K` to `n`:
-     - Try all possible partitions and update `dp[i][j]`.
-     - If the current range can form one pile, add the total sum to `dp[i][j]`.
-
-##### Code
-
-```python
-class Solution:
-    def mergeStones(self, stones: List[int], K: int) -> int:
-        n = len(stones)
-        if (n - 1) % (K - 1):
-            return -1
-
-        prefix = [0] * (n + 1)
-        for i in range(n):
-            prefix[i + 1] = prefix[i] + stones[i]
-
-        dp = [[0] * n for _ in range(n)]
-        for m in range(K, n + 1):
-            for i in range(n - m + 1):
-                j = i + m - 1
-                dp[i][j] = min(dp[i][t] + dp[t + 1][j] for t in range(i, j, K - 1))
-                if (m - 1) % (K - 1) == 0:
-                    dp[i][j] += prefix[j + 1] - prefix[i]
-
-        return dp[0][n - 1]
-```
-
-##### Complexity Analysis
-
-- **Time Complexity**: \( O(n^3 / K) \), due to the nested loops.
-- **Space Complexity**: \( O(n^2) \), for the DP array.
-
----
+- **Time Complexity**: O(n * s), where 's' is the subset sum.
+- **Space Complexity**: O(s), for the DP array.
 
 ## DP on Strings
 
@@ -217,6 +165,12 @@ This pattern involves solving problems related to string manipulation, such as f
 #### Problem Description
 
 Given two strings `text1` and `text2`, return the length of their longest common subsequence. A subsequence is a sequence that appears in the same relative order but not necessarily contiguous.
+
+**Example:**
+
+> **Input:** text1 = "abcde", text2 = "ace" <br>
+> **Output:** 3  <br>
+> **Explanation:** The longest common subsequence is "ace" and its length is 3.<br>
 
 #### Solution Explanation
 
@@ -257,8 +211,8 @@ class Solution:
 
 ##### Complexity Analysis
 
-- **Time Complexity**: \( O(m \times n) \), where \( m \) and \( n \) are the lengths of the two strings.
-- **Space Complexity**: \( O(m \times n) \), for the DP array.
+- **Time Complexity**: O(m * n), where 'm' and 'n' are the lengths of the two strings.
+- **Space Complexity**: O(m * n), for the DP array.
 
 ---
 
@@ -274,11 +228,104 @@ This pattern involves making decisions at each step to optimize a certain object
 - **State Definition**: The DP state includes parameters that represent decisions made so far.
 - **Common Problems**: Stock trading, scheduling with penalties, or any scenario where decisions affect future outcomes.
 
+### Example Problem: [198. House Robber](https://leetcode.com/problems/house-robber/)
+
+#### Problem Description
+
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, and you cannot rob two adjacent houses because it will alert the police. Given an integer array `nums` representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
+
+**Example:**
+
+> **Input:** nums = [1,2,3,1]<br>
+> **Output:** 4<br>
+> **Explanation:** Rob house 1 (money = 1) and then rob house 3 (money = 3).<br>
+> Total amount you can rob = 1 + 3 = 4.
+
+#### Solution Explanation
+
+We need to maximize the profit by deciding whether to rob each house or skip it, while ensuring we don't rob two adjacent houses.
+
+##### Steps
+
+1. **Define the DP Array**:
+   - Let `dp[i]` be the maximum profit achievable by robbing up to the `i-th` house.
+
+2. **Initialize Base Cases**:
+   - If there are no houses (`nums` is empty), the maximum profit is `0`.
+   - If there is only one house, the maximum profit is `nums[0]`.
+
+3. **Fill the DP Array**:
+   - For each house from the second house onward:
+     - `dp[i]` will be the maximum of:
+       - Robbing the `i-th` house and adding its value to `dp[i-2]` (skip one house).
+       - Skipping the `i-th` house and taking the value from `dp[i-1]`.
+
+4. **Return the Result**: The last element in `dp` represents the maximum profit achievable.
+
+##### Code
+
+```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        if len(nums) == 1:
+            return nums[0]
+
+        dp = [0] * len(nums)
+        dp[0] = nums[0]
+        dp[1] = max(nums[0], nums[1])
+
+        for i in range(2, len(nums)):
+            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
+
+        return dp[-1]
+```
+
+##### Optimized Code (Space Optimization)
+
+Since we only need the last two states at each step, we can reduce space complexity to `O(1)`:
+
+```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        if len(nums) == 1:
+            return nums[0]
+
+        prev2 = nums[0]
+        prev1 = max(nums[0], nums[1])
+
+        for i in range(2, len(nums)):
+            current = max(prev1, prev2 + nums[i])
+            prev2 = prev1
+            prev1 = current
+
+        return prev1
+```
+
+##### Complexity Analysis
+
+- **Time Complexity**: O(n), where 'n' is the number of houses.
+- **Space Complexity**: O(1), due to constant space usage in the optimized solution.
+
 ### Example Problem: [714. Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
 
 #### Problem Description
 
 You are given an array `prices` where `prices[i]` is the price of a stock on day `i` and an integer `fee` representing a transaction fee. You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. Return the maximum profit you can achieve.
+
+**Example:**
+
+> **Input:** prices = [1,3,2,8,4,9], fee = 2<br>
+> **Output:** 8<br>
+> **Explanation:** The maximum profit can be achieved by:<br>
+> - Buying at prices[0] = 1<br>
+> - Selling at prices[3] = 8<br>
+> - Buying at prices[4] = 4<br>
+> - Selling at prices[5] = 9<br>
+> The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.<br>
 
 #### Solution Explanation
 
@@ -318,5 +365,5 @@ class Solution:
 
 ##### Complexity Analysis
 
-- **Time Complexity**: \( O(n) \), where \( n \) is the number of days.
-- **Space Complexity**: \( O(1) \), as we use constant extra space.
+- **Time Complexity**: O(n), where 'n' is the number of days.
+- **Space Complexity**: O(1), as we use constant extra space.

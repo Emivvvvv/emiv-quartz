@@ -6,7 +6,7 @@ Hi y'all! My name is Emirhan. I'm a Computer Engineering student who is interest
 ## Projects
 
 #### PERSONAL PROJECTS
-[[btc-vanity]]: A Bitcoin vanity address generator library written with Rust (+8800 downloads).
+[[btc-vanity]]: A Bitcoin vanity address generator library written with Rust. (+13,000 downloads)
 <br>
 [[https://github.com/Emivvvvv/rlox/tree/main/rlox-ast|rlox-ast]]: Lox language interpreter, written with Rust. 
 <br>
