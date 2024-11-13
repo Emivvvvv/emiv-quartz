@@ -2,6 +2,10 @@
 title: Graphs
 draft: false
 tags:
+  - Algorithms
+  - DataStructures
+  - Python
+  - Interview
 ---
 # Intro
 
