@@ -42,4 +42,4 @@ Hi y'all! My name is Emirhan. I'm a Computer Engineering student who is interest
 ## Publications
 VAN, A., HOEF, S. L., SMIT, K., MIĘTKIEWICZ, Ł., [TALA, E.](https://scholar.google.com/citations?user=uiUpIB0AAAAJ&hl=tr), IWASHIMA, F. S. S., ... & DE HAAS, M. (2024).  
 <br>
-[Ethnical Anthropomorphism in Human-Robot Interaction: Personalized Robot Tutors](https://press.um.si/index.php/ump/catalog/view/880/1284/4213).
+[Ethnical Anthropomorphism in Human-Robot Interaction: Personalized Robot Tutors](https://www.researchgate.net/profile/Emirhan-Tala-2/publication/380994262_Ethnical_Anthropomorphism_in_Human-Robot_Interaction_Personalized_Robot_Tutors/links/66a74fe5de060e4c7e63cff0/Ethnical-Anthropomorphism-in-Human-Robot-Interaction-Personalized-Robot-Tutors.pdf).
